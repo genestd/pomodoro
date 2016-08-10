@@ -72,21 +72,24 @@ $("#restMinus").on("click",function(){
     if (timer.isRunning() || timer.isPaused() ){
       showWarning( "Please stop the current timer before starting a new one.", $("#warning"));
     } else {
+      $("#btnPlay").velocity({translateY:"4px"}, {duration:75}).velocity("reverse");
       $("#progressCircle").css("stroke-dasharray",length);
       $("#progressCircle").css("stroke-dashoffset",length);
       startTimer();
-      showMessage( activity + " time remaining:")
     }
   });
   $("#btnPause").on("click", function(){
     if (timer.isRunning()){
+      $("#btnPause").velocity({translateY:"4px"}, {duration:75}).velocity("reverse");
       timer.pause();
     } else if ( timer.isPaused() ){
+      $("#btnPause").velocity({translateY:"4px"}, {duration:75}).velocity("reverse");
       timer.start();
     }
   });
   $("#btnStop").on("click", function(){
     if ( timer.isRunning() || timer.isPaused() ){
+      $("#btnStop").velocity({translateY:"4px"}, {duration:75}).velocity("reverse");
       timer.stop();
       $("#progressCircle").css("stroke-dasharray","");
       $("#progressCircle").css("stroke-dashoffset","");
@@ -127,7 +130,7 @@ function showMessage(msg){
   $("#message").html(msg);
 }
 function startTimer(){
-  console.log("startTimer()");
+  showMessage( activity + " time remaining:");
   percent = 0;
   if( activity == "Work"){
     totalSeconds = workTime * 60;
@@ -135,7 +138,6 @@ function startTimer(){
     totalSeconds = restTime * 60;
   }
   timer = new Timer();
-  console.log(percent + " " + totalSeconds + " " + workTime + " " + restTime);
   timer.start({countdown:true, startValues:{ minutes: (totalSeconds/60)}} );
   timer.addEventListener('secondsUpdated', function (e) {
       $('#timer').html(timer.getTimeValues().toString(["minutes","seconds"]));
@@ -158,6 +160,8 @@ function startTimer(){
         timer.stop();
       }
       startTimer();
+    } else {
+      showWarning( "Pomodoro Session Completed!", $("#warning"));
     }
 
   });
