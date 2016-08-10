@@ -70,7 +70,7 @@ $("#restMinus").on("click",function(){
 
   $("#btnPlay").on("click", function(){
     if (timer.isRunning() || timer.isPaused() ){
-      showWarning( "Please stop the current timer before starting a new one.", $("warning"));
+      showWarning( "Please stop the current timer before starting a new one.", $("#warning"));
     } else {
       $("#progressCircle").css("stroke-dasharray",length);
       $("#progressCircle").css("stroke-dashoffset",length);
