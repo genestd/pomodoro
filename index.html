@@ -1,0 +1,76 @@
+<html >
+  <head>
+    <meta charset="UTF-8">
+      <title>Pomodoro Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+<body>
+  <div class="app">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#pomodoro" role="tab" data-toggle="tab"><i class="fa fa-clock-o fa-2x"></i></a></li>
+    <li><a href="#settings" role="tab" data-toggle="tab"><i class="fa fa-gear fa-2x"></i></a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="pomodoro">
+      <div id="warning"></div>
+      <div id="message">Welcome to the pomodoro timer.  Enter settings on the settings tab.</div>
+      <svg width="250" height="250" xmlns="http://www.w3.org/2000/svg" id="mySVG">
+       <g transform="rotate(90,125,125)">
+        <title>progressCircle</title>
+        <path stroke="#880c30"
+              class="path"
+              id="progressCircle"
+              d="m5.5,124.5c0,-64.088379 53.477905,-116 119.5,-116c66.022095,0 119.5,51.911621 119.5,116c0,64.088379 -53.477905,116 -119.5,116c-66.022095,0 -119.5,-51.911621 -119.5,-116z"
+              stroke-width="9"
+              fill="#fff"/>
+       </g>
+      </svg>
+      <div id="timer">25:00</div>
+      <div id="playbar"><i class="fa fa-play fa-3x" id="btnPlay"></i><i class="fa fa-pause fa-3x" id="btnPause"></i><i class="fa fa-stop fa-3x" id="btnStop"></i></div>
+     </div>
+
+    <div class="tab-pane" id="settings">
+      <div id="wrapper">
+       <div id="work">Work<br>
+         <span class="glyphicon glyphicon-plus pointer" id="workPlus"></span>
+         <div id="workTime">25</div>
+         <span class="glyphicon glyphicon-minus pointer" id="workMinus"></span>
+       </div>
+       <div id="rest">Rest<br>
+         <span class="glyphicon glyphicon-plus pointer" id="restPlus"></span>
+         <div id="restTime">5</div>
+         <span class="glyphicon glyphicon-minus pointer" id="restMinus"></span>
+       </div>
+       <div id="sessionMsg">
+       </div>
+       <div id="sessions">Sessions<br>
+         <span class="glyphicon glyphicon-plus pointer" id="sessionPlus"></span>
+         <div id="sessionCount">4</div>
+         <span class="glyphicon glyphicon-minus pointer" id="sessionMinus"></span>
+       </div>
+       <div id="help" >
+         <a href="#helpDiv" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="glyphicon glyphicon-question-sign pointer" id="pomoHelp"></span></a>
+       </div>
+       <div class="collapse" id="helpDiv">The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. The technique uses a timer to break down work into sessions, traditionally 25 minutes in length, separated by short breaks. Use the controls above to set the length and number of your sessions.
+       </div>
+      </div>
+     </div>
+
+  </div>
+</div>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.js'></script>
+<script src='js/easytimer.js'></script>
+<script src="js/index.js"></script>
+
+
+</body>
+</html>
